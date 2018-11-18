@@ -1,0 +1,8 @@
+C:\Users\Clayton\Programs\Repositories\Joust\JoustGame\JoustModel\bin\Debug\JoustModel.dll
+C:\Users\Clayton\Programs\Repositories\Joust\JoustGame\JoustModel\bin\Debug\JoustModel.pdb
+C:\Users\Clayton\Programs\Repositories\Joust\JoustGame\JoustModel\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Clayton\Programs\Repositories\Joust\JoustGame\JoustModel\obj\Debug\JoustModel.csprojAssemblyReference.cache
+C:\Users\Clayton\Programs\Repositories\Joust\JoustGame\JoustModel\obj\Debug\JoustModel.csproj.CoreCompileInputs.cache
+C:\Users\Clayton\Programs\Repositories\Joust\JoustGame\JoustModel\obj\Debug\JoustModel.csproj.CopyComplete
+C:\Users\Clayton\Programs\Repositories\Joust\JoustGame\JoustModel\obj\Debug\JoustModel.dll
+C:\Users\Clayton\Programs\Repositories\Joust\JoustGame\JoustModel\obj\Debug\JoustModel.pdb
