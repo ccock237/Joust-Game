@@ -481,7 +481,7 @@ namespace JoustClient
             canvas.Children.Add(listv);
             for (int fileNum = 0; fileNum < files.Length; fileNum++)
             {
-                Button b = Make_Button(files[fileNum].Name.Substring(0, (files[fileNum].Name.Length - 4)), (fileNum + 1) * 100, LoadStage);
+                Button b = Make_Button(files[fileNum].Name.Substring(0, (files[fileNum].Name.Length - 4)), 620, (fileNum + 1) * 100, LoadStage);
                 canvas.Children.Remove(b);
                 listv.Items.Add(b);
             }
@@ -616,7 +616,7 @@ namespace JoustClient
         /// <param name="top"></param>
         /// <param name="eventx"></param>
         /// <returns></returns>
-        private Button Make_Button(object content, double top, RoutedEventHandler eventx)
+        private Button Make_Button(object content, double left, double top, RoutedEventHandler eventx)
         {
             Button btnReturn = new Button();
 
@@ -624,6 +624,7 @@ namespace JoustClient
             btnReturn.Content = contentString.ToUpper();
 
             btnReturn.SetValue(Canvas.TopProperty, top);
+            btnReturn.SetValue(Canvas.LeftProperty, left);
 
             if (!(eventx == null))
             {
@@ -637,7 +638,6 @@ namespace JoustClient
             btnReturn.FontWeight = FontWeights.Bold;
             btnReturn.Height = 100;
             btnReturn.Width = 200;
-            btnReturn.SetValue(Canvas.LeftProperty, 620.0);
 
             canvas.Children.Add(btnReturn);
 
@@ -654,8 +654,7 @@ namespace JoustClient
         /// <returns></returns>
         private Button Make_BackButton(double top, RoutedEventHandler eventx)
         {
-            Button back = Make_Button("Back", top, eventx);
-            back.SetValue(Canvas.LeftProperty, 620.0);
+            Button back = Make_Button("Back", 620, top, eventx);
             back.Height = 100;
             back.Width = 200;
             return back;
@@ -729,11 +728,12 @@ namespace JoustClient
             canvas.Background = Brushes.Black;
             control.WorldRef.win -= this.NotifyWon;
 
-            Button startSingle = Make_Button("Single Player", 250.0, Single_Screen);
-            Button help = Make_Button("Help", 350.0, Help_Screen);
-            Button about = Make_Button("About", 450.0, About_Screen);
-            Button scores = Make_Button("High Scores", 550.0, HighScores_Screen);
-            Button designer = Make_Button("Level Designer", 700.0, Designer_Screen);
+            Button startSingle = Make_Button("Single Player", 485, 250, Single_Screen);
+            Button designer = Make_Button("Level Designer", 735, 250, Designer_Screen);
+            Button scores = Make_Button("High Scores", 485, 400, HighScores_Screen);
+            Button help = Make_Button("Help", 735, 400, Help_Screen);
+            Button about = Make_Button("About", 610, 550, About_Screen);
+
 
             inEscScreen = false;
 
@@ -771,11 +771,11 @@ namespace JoustClient
 
             Button back = Make_BackButton(625.0, Title_Screen);
 
-            Button game = Make_Button("Start Game", 100.0, NewGame);
+            Button game = Make_Button("Start Game", 620, 100, NewGame);
 
-            Button customStage = Make_Button("Custom Stage", 200.0, CustomStage_Screen);
+            Button customStage = Make_Button("Custom Stage", 620, 200, CustomStage_Screen);
 
-            Button cheat = Make_Button("CHEAT OFF", 350.0, Cheat_Toggle);
+            Button cheat = Make_Button("CHEAT OFF", 620, 350, Cheat_Toggle);
             cheat.Height = 50;
             cheatMode = false;
 
@@ -891,8 +891,8 @@ namespace JoustClient
             namebox.MaxLength = 10;
             canvas.Children.Add(namebox);
 
-            Button yes = Make_Button("Save score", 300.0, Accept_SaveScore);
-            Button no = Make_Button("Don't save score", 300.0, Title_Screen);
+            Button yes = Make_Button("Save score", 620, 300, Accept_SaveScore);
+            Button no = Make_Button("Don't save score", 400, 300, Title_Screen);
 
             yes.SetValue(Canvas.LeftProperty, 520.0);
             no.SetValue(Canvas.LeftProperty, 720.0);
@@ -989,10 +989,10 @@ namespace JoustClient
 
             canvas.Children.Clear();
 
-            Button progression = Make_Button("Progression", 200, Progression_Screen);
-            Button player = Make_Button("Player/Controls", 300, Player_Screen);
-            Button enemies = Make_Button("Enemies", 400, Enemies_Screen);
-            Button scoring = Make_Button("Scoring", 500, Scoring_Screen);
+            Button progression = Make_Button("Progression", 620, 200, Progression_Screen);
+            Button player = Make_Button("Player/Controls", 620, 300, Player_Screen);
+            Button enemies = Make_Button("Enemies", 620, 400, Enemies_Screen);
+            Button scoring = Make_Button("Scoring", 620, 500, Scoring_Screen);
 
             Button back = Make_BackButton(625.0, Title_Screen);
         }
@@ -1146,9 +1146,9 @@ namespace JoustClient
 
             canvas.Children.Clear();
 
-            Button buzzard = Make_Button("Buzzards", 200, Buzzard_Screen);
-            Button egg = Make_Button("Eggs", 300, Egg_Screen);
-            Button ptero = Make_Button("Pterodactyls", 400, Pterodactyl_Screen);
+            Button buzzard = Make_Button("Buzzards", 620, 200, Buzzard_Screen);
+            Button egg = Make_Button("Eggs", 620, 300, Egg_Screen);
+            Button ptero = Make_Button("Pterodactyls", 620, 400, Pterodactyl_Screen);
 
             Button back = Make_BackButton(625.0, Help_Screen);
         }
@@ -1270,15 +1270,14 @@ namespace JoustClient
             canvas.Children.Remove(one);
             canvas.Children.Remove(two);
 
-            Button ex1 = Make_Button("PLATFORM", 0.0, plat_button);
+            Button ex1 = Make_Button("PLATFORM", 620, 0, plat_button);
             ex1.Height = 30;
             ex1.Width = 200;
             ex1.Background = Brushes.Orange;
 
-            ex2 = Make_Button("SPAWN", 0.0, spawn_button);
+            ex2 = Make_Button("SPAWN", 420, 0, spawn_button);
             ex2.Height = 30;
             ex2.Width = 200;
-            ex2.SetValue(Canvas.LeftProperty, 420.0);
             ex2.Background = Brushes.Orange;
             ex2.IsEnabled = true;
 
@@ -1293,18 +1292,15 @@ namespace JoustClient
             namebox.MaxLength = 10;
             canvas.Children.Add(namebox);
 
-            Button save = Make_Button("Save", 0.0, Level_Save);
-            save.SetValue(Canvas.LeftProperty, 1020.0);
+            Button save = Make_Button("Save", 1020, 0, Level_Save);
             save.Width = 100;
             save.Height = 30;
 
-            Button exit = Make_Button("Exit", 0.0, Title_Screen);
-            exit.SetValue(Canvas.LeftProperty, 1120.0);
+            Button exit = Make_Button("Exit", 1120, 0, Title_Screen);
             exit.Width = 100;
             exit.Height = 30;
 
-            Button delete = Make_Button("Delete", 0.0, Plat_Delete);
-            delete.SetValue(Canvas.LeftProperty, 1220.0);
+            Button delete = Make_Button("Delete", 1220, 0, Plat_Delete);
             delete.Width = 100;
             delete.Height = 30;
 
@@ -1848,9 +1844,9 @@ namespace JoustClient
                 updateTimer.Stop();
                 TextBlock paused = Make_TextBlock(300, 620, 50, 200);
                 paused.Text = "Game Paused";
-                Button unpause = Make_Button("Unpause", 360, ResumeGame);
-                Button mainMenu = Make_Button("MainMenu", 470, Title_Screen);
-                Button save = Make_Button("Save Game", 580, SaveGame);
+                Button unpause = Make_Button("Unpause", 620, 360, ResumeGame);
+                Button mainMenu = Make_Button("MainMenu", 620, 470, Title_Screen);
+                Button save = Make_Button("Save Game", 620, 580, SaveGame);
             }
         }
 
